@@ -2,6 +2,8 @@ package test;
 
 import app.Cola;
 import java.util.Arrays;
+import static java.util.Arrays.asList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,6 +35,9 @@ public class ColaTest {
         cola.encolar("D");
         
         //Como tenemos 4 elementos, la cola no estara llena ni vacia
+        List<String> cola1 = asList("A", "B", "C", "D");
+        assertTrue(cola.equals(cola1));
+
         //Negacion de que la cola esta vacia
         assertFalse(cola.vacia());
         //Negacion de que la cola esta llena
@@ -42,9 +47,12 @@ public class ColaTest {
 
         
         //Agregamos el quinto elemento
-        cola.encolar("D");
+        cola.encolar("E");
         
         //La cola ahora tiene 5 elementos, esta llena
+        List<String> cola2 = asList("A", "B", "C", "D", "E");
+        assertTrue(cola.equals(cola2));
+        
         //Afirmacion de que la cola esta llena
         assertTrue(cola.llena());
         //Negacion de que la cola esta vacia
